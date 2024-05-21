@@ -29,15 +29,23 @@ public class Bullet : MonoBehaviour
     private IEnumerator IEDestroy()
     {
         yield return new WaitForSeconds(timeAlive);
+        BulletDestroy();
+    }
+
+    public void BulletDestroy()
+    {
         SpawnExplosion();
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
+        print("OnTriggerStay Entry\t" + LayerMask.LayerToName(collision.gameObject.layer) + "\t" + _from);
         if (collision.gameObject.layer == LayerMask.NameToLayer(_from))
             return;
 
+
+        print("First IF complete");
         if (collision.tag == damagableTag && !collision.isTrigger)
         {
             collision.GetComponent<Health>().TakeDamage(damage);
@@ -48,11 +56,11 @@ public class Bullet : MonoBehaviour
             if (_from == collision.gameObject.GetComponent<Bullet>().GetFrom())
                 return;
         }
+        print("3 IF complete");
 
         if (collision.tag != "Undestroyable" && !collision.isTrigger)
         {
-            SpawnExplosion();
-            Destroy(gameObject);
+            BulletDestroy();
         }
     }
 
