@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public class HealBonus : MonoBehaviour
 {
     [SerializeField] private int addHealth;

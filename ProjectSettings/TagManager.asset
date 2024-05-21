@@ -40,15 +40,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackgroundStars
+    uniqueID: 2738367273
+    locked: 0
+  - name: Background
+    uniqueID: 2526559783
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Player
-    uniqueID: 3277039129
     locked: 0
   - name: BasicEnv
     uniqueID: 2152944149
     locked: 0
   - name: InteractiveEnv
     uniqueID: 484462995
+    locked: 0
+  - name: Player
+    uniqueID: 3277039129
     locked: 0

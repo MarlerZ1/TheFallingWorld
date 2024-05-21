@@ -141,7 +141,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -5.0976386}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -152,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15, y: 1}
+  m_Size: {x: 31.24, y: 11.195277}
   m_EdgeRadius: 0
 --- !u!114 &1778756959192102915
 MonoBehaviour:
@@ -498,7 +498,6 @@ GameObject:
   - component: {fileID: 3678408569016940601}
   - component: {fileID: 1121386219279006203}
   - component: {fileID: 7625050882431869523}
-  - component: {fileID: 3019715067011576189}
   m_Layer: 8
   m_Name: EnemyWithGun
   m_TagString: Damagable
@@ -589,7 +588,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -819,54 +818,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageSound: {fileID: 3234873297835982645, guid: 5255df629765a564faf34968481272b6, type: 3}
+  healingSound: {fileID: 0}
   deathSound: {fileID: 0}
   timeToDeath: 0
   DestroyByAnimation: 1
---- !u!61 &3019715067011576189
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7305433720261490332}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.91970634, y: -0.6614244}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.75, y: 3.25}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.92754745, y: 1.8835983}
-  m_EdgeRadius: 0
 --- !u!1 &8325676618537721319
 GameObject:
   m_ObjectHideFlags: 0

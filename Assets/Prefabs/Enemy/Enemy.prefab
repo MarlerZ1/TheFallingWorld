@@ -660,6 +660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 50
   authoDestroy: 0
+  destroyedParent: {fileID: 0}
 --- !u!61 &3085748982212374497
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -830,6 +831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageSound: {fileID: 7102576692442446732, guid: e9aced8e1666df044ba2136fde9d0037, type: 3}
+  healingSound: {fileID: 0}
   deathSound: {fileID: 2093677772211426633, guid: b8ce417a966252d498fbb048d7175e41, type: 3}
   timeToDeath: 1.3
   DestroyByAnimation: 0

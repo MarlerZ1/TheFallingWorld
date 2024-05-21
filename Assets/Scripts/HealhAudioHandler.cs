@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public class HealhAudioHandler : MonoBehaviour
 {
     public event Action OnParentDestroy;

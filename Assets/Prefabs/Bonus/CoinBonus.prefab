@@ -169,3 +169,4 @@ MonoBehaviour:
   playerLayermask:
     serializedVersion: 2
     m_Bits: 8
+  bonusSounds: {fileID: 1772561662089750453, guid: 66700240b2f2fca44840a98c674cbb5a, type: 3}

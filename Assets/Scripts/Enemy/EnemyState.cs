@@ -100,7 +100,7 @@ public class EnemyState : MonoBehaviour
         _animator.SetTrigger("isFire");
         _enemyPatrol.enabled = false;
         _rb.velocity = Vector2.zero;
-        _rb.isKinematic = true;
+        //_rb.isKinematic = true;
 
         if (_enemyDistantAttack)
             _enemyDistantAttack.enabled = true;

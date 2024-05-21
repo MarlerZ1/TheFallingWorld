@@ -31,18 +31,29 @@ public class EnemyStateChanger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        print("Enabled Con " + this.enabled);
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            if (enemyState.GetEnemyState() != "Death")
+            if (enemyState.GetEnemyState() != "Death" && gameObject.activeInHierarchy)
                 StartCoroutine(IEStopChasing());
+            else if (!gameObject.activeInHierarchy)
+                StopAllCoroutines();
         }
     }
 
     private IEnumerator IEStopChasing()
     {
         yield return new WaitForSeconds(timeToChasingAfterPlayerHide);
-        if (enemyState.GetEnemyState() != "Death")
+
+        if (enemyState.GetEnemyState() != "Death" && gameObject.activeInHierarchy)
             StartCoroutine(enemyPatrol.IEPlayIdleAnimation());
+        else if (!gameObject.activeInHierarchy)
+            StopAllCoroutines();
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     private void OnDestroy()

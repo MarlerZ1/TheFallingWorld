@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameScoreCounter : MonoBehaviour
@@ -13,12 +11,15 @@ public class GameScoreCounter : MonoBehaviour
     {
         _gameScore += addScore;
         OnGameScoreChanged?.Invoke(_gameScore);
-        print("GetGameScoreCounter\t" + _gameScore);
     }
 
     public static int GetGameScoreCounter()
     {
-        print("GetGameScoreCounter\t" + _gameScore);
         return _gameScore;
+    }
+
+    public static void ScoreReset() 
+    {
+        _gameScore = 0;
     }
 }
