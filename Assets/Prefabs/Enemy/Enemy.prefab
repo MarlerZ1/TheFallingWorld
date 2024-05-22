@@ -126,7 +126,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8
-  damage: 15
+  damage: 50
   coldownTime: 2
   enemyState: {fileID: 3361015032155999884}
 --- !u!50 &1561117682456948420
