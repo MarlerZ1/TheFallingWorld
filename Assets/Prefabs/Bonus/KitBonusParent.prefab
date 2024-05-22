@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6261040937852877982}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: KitBonusParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7759535927234353948}
   - component: {fileID: 1225156875805377165}
   - component: {fileID: 7528009382505811213}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: KitBonus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 59d540fcc8610af429f051b314e52df3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b53cd4d9d0f9942a0a1818e36bfd42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addHealth: 25
+  addHealth: 150
   playerLayermask:
     serializedVersion: 2
     m_Bits: 8

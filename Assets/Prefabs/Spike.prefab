@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5378124469977708005}
   - component: {fileID: 3596883152312576750}
   - component: {fileID: 6714623062223749124}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2142023147
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 983834454, guid: 14704b6502366d44d804e4ccf20a7134, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -148,8 +148,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8
-  damage: 5
+  damage: 100
   coldownTime: 2
+  enemyState: {fileID: 0}
 --- !u!61 &6714623062223749124
 BoxCollider2D:
   m_ObjectHideFlags: 0

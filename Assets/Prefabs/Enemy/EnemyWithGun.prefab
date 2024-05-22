@@ -427,7 +427,7 @@ GameObject:
   m_Layer: 8
   m_Name: RaycastObjectFirst
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -440,7 +440,7 @@ Transform:
   m_GameObject: {fileID: 5895513184918327698}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.59, y: -1.578, z: 0}
+  m_LocalPosition: {x: 0.59, y: -1.494, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2aa2bef43cfc554895e5f9b22223c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 200
   authoDestroy: 0
   destroyedParent: {fileID: 8377521358986873726}
 --- !u!61 &3635793144242882280
@@ -694,7 +694,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3362999, y: -0.10549092}
+  m_Offset: {x: -0.3362999, y: -0.082317114}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -705,7 +705,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5476532, y: 3.0575767}
+  m_Size: {x: 1.5476532, y: 2.9050608}
   m_EdgeRadius: 0.03
 --- !u!61 &2614512332102068840
 BoxCollider2D:
@@ -739,7 +739,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.4264536, y: -0.06644869}
+  m_Offset: {x: 1.4264536, y: -0.04429829}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -750,7 +750,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.04433632, y: 3.002193}
+  m_Size: {x: 0.04433632, y: 2.5912516}
   m_EdgeRadius: 0
 --- !u!114 &740647719823772171
 MonoBehaviour:
@@ -834,7 +834,7 @@ GameObject:
   m_Layer: 8
   m_Name: RaycastObjectSecond
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -847,7 +847,7 @@ Transform:
   m_GameObject: {fileID: 8325676618537721319}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.919, y: -1.5779998, z: 0}
+  m_LocalPosition: {x: 0.919, y: -1.4940002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
