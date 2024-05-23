@@ -1,9 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
-using UnityEngine.Rendering;
+
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(PlayerAnimationState))]
@@ -31,21 +29,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private int maxAmmoCount;
 
 
-    /*
-    [Header("Sword attack balance settings")]
-    [SerializeField] private float swordAttackDamage;
-    [SerializeField] private float swordAttackDamageDelay;
-    [SerializeField] private float swordAttackColdownTime;
-    [SerializeField] private float swordAttackRadius; */
-
-
     private int _currentAmmoCount;
-    private PlayerAnimationState _playerAnimationState;
     private Controls _controls;
     private bool _canUseMagicAttack = true;
-    private bool _canUseSwordAttack = true;
     private bool _isReloading = false;
-    //private SpriteRenderer _sp;
+
 
     public void Reload()
     {
@@ -72,7 +60,6 @@ public class PlayerAttack : MonoBehaviour
         {
             StartCoroutine(IEMagicAttackColdown());
             Instantiate(weaponFireSound, transform.position, Quaternion.identity);
-            //_playerAnimationState.HeroAttackMagic();
 
             Vector3 endPoint = CameraSingletone.GetMainCamera().ScreenToWorldPoint(_controls.Attack.AttackDirection.ReadValue<Vector2>());
             endPoint.z = 0;
@@ -87,10 +74,6 @@ public class PlayerAttack : MonoBehaviour
 
             Rigidbody2D magicBulletRb = magicBullet.GetComponent<Rigidbody2D>();
 
-            //int direction = _sp.flipX ? -1 : 1;
-
-
-            //int direction = transform.rotation.y == -1 ? -1 : 1;
             magicBulletRb.velocity = shotDirection * magicAttackSpeed;
             _currentAmmoCount--;
             OnAmmoChange?.Invoke(_currentAmmoCount);
@@ -101,16 +84,7 @@ public class PlayerAttack : MonoBehaviour
             Reload();
         }
     }
-    /*
-    private void SwordAttack()
-    {
-        if (_canUseSwordAttack)
-        {
-            _playerAnimationState.HeroAttackSword();
-            StartCoroutine(IESwordAttackColdown());
-        }
-            
-    } */
+
 
     private IEnumerator IEMagicAttackColdown()
     {
@@ -119,48 +93,16 @@ public class PlayerAttack : MonoBehaviour
         _canUseMagicAttack = true;
     }
 
-/*
-    private IEnumerator IESwordAttackColdown()
-    {
-        _canUseSwordAttack = false;
 
-        yield return new WaitForSeconds(swordAttackDamageDelay);
-        Collider2D[] others = Physics2D.OverlapCircleAll(swordAttackCollisionPoint.position, swordAttackRadius);
-
-
-        if (others.Length == 0)
-            yield return null;
-
-        print("Layers: " + others.Length);
-        for (int i = 0; i < others.Length; i++)
-        {
-            if (others[i].gameObject.tag == damagableTag && !others[i].isTrigger && !dontDamagableLayers.Contains(others[i].gameObject.layer))
-            {
-                others[i].GetComponent<Health>().TakeDamage(swordAttackDamage);
-                print("Damage " + swordAttackDamage);
-            }
-        }
-    
-
-
-
-        yield return new WaitForSeconds(swordAttackColdownTime);
-
-        _canUseSwordAttack = true;
-    }
-*/
     private void Awake()
     {
         _controls = ControlsSingletone.GetControls();
-        _playerAnimationState = GetComponent<PlayerAnimationState>();
         _currentAmmoCount = maxAmmoCount;
-        //_sp = GetComponent<SpriteRenderer>();
     }
 
     private void OnDisable()
     {
         _controls.Disable();
-       // _controls.Attack.Sword.performed -= context => SwordAttack();
         _controls.Attack.Magic.performed -= context => MagicAttack();
         _controls.Attack.Reload.performed -= context => Reload();
     }
@@ -168,7 +110,6 @@ public class PlayerAttack : MonoBehaviour
     private void OnEnable()
     {
         _controls.Enable();
-        //_controls.Attack.Sword.performed += context => SwordAttack();
         _controls.Attack.Magic.performed += context => MagicAttack();
         _controls.Attack.Reload.performed += context => Reload();
         OnAmmoChange?.Invoke(_currentAmmoCount);

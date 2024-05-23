@@ -8,10 +8,6 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Menu))]
 public class Portal : MonoBehaviour
 {
-
-    //public event Action OnLvlLastComplete;
-    //public event Action OnLvlComplete;
-
     [Header("If player Collision waiting")]
     [SerializeField] private bool waitPlayerCollision;
 
@@ -21,13 +17,6 @@ public class Portal : MonoBehaviour
     [Header("Objects")]
     [SerializeField] private LayerMask nextLvlActivateLayerMask;
     [SerializeField] private Animator animator;
-
-    //private Menu _menu;
-
-    /*private void Awake()
-    {
-        _menu = GetComponent<Menu>();
-    } */
 
     private void Start()
     {
@@ -45,19 +34,8 @@ public class Portal : MonoBehaviour
         animator.SetBool("isIdle", false);
     }
 
-    //revork
     public void DestroyGameObject()
     {
-        /* bool isLvlLast = !_menu.CanLoadNextLvl();
-
-
-         if (isLvlLast)
-         {
-             OnLvlLastComplete?.Invoke();
-         } else
-         {
-             //OnLvlComplete?.Invoke();
-         } */
         if (waitPlayerCollision)
             SceneManager.LoadScene(2);
         Destroy(gameObject);

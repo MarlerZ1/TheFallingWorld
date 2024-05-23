@@ -26,13 +26,11 @@ public class PlayerMoving : MonoBehaviour
         _controls = ControlsSingletone.GetControls();
         _rb = GetComponent<Rigidbody2D>();
         _playerAnimationState = GetComponent<PlayerAnimationState>();
-        //_sp = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
     {
         Move();
-        //Debug.DrawRay(rayCastObj.position, Vector3.down * raycastDistance, Color.yellow);
     }
 
 
@@ -75,7 +73,6 @@ public class PlayerMoving : MonoBehaviour
 
         float interpolatedValue = Mathf.Lerp(0, direction, (float)elapsedFrames / interpolationFramesCount);
         _rb.velocity = new Vector2(curve.Evaluate(interpolatedValue) * moveSpeed, _rb.velocity.y);
-       // print(_rb.velocity);
 
     }
 
@@ -112,7 +109,6 @@ public class PlayerMoving : MonoBehaviour
 
         if (layerMask.Contains(collision.gameObject.layer))
         {
-            //print("_isGrounded " + _isGrounded);
             _isGrounded = true;
         }
     }
@@ -120,7 +116,6 @@ public class PlayerMoving : MonoBehaviour
     {
         if (layerMask.Contains(collision.gameObject.layer))
         {
-            //print("_isGrounded " + _isGrounded);
             _isGrounded = false;
         }
     } 

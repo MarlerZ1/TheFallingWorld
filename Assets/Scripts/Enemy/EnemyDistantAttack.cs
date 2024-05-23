@@ -21,10 +21,6 @@ public class EnemyDistantAttack : MonoBehaviour
     private Rigidbody2D _rb;
     private bool isEscaping;
     private Animator _animator;
-    /* private void Start()
-     {
-         Attack();
-     } */
 
     private void Awake()
     {
@@ -34,6 +30,9 @@ public class EnemyDistantAttack : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (player == null)
+            return;
+
         if (Mathf.Abs(player.position.x - transform.position.x) <= distanceToEscape)
         {
             isEscaping = true;
@@ -67,37 +66,19 @@ public class EnemyDistantAttack : MonoBehaviour
 
     public void Attack()
     {
-        if (isEscaping)
+        if (isEscaping || player == null)
             return;
 
         RotateEnemy((player.position - spawnPosition.position).x > 0);
 
 
         Vector2 shotDirection = (player.position - spawnPosition.position).normalized;
-        print(shotDirection);
 
         GameObject magicBullet = Instantiate(bullet, spawnPosition.position, Quaternion.Euler(0, transform.rotation.y == -1 ? 180 : 0, 0));
         magicBullet.GetComponent<Bullet>().SetFrom("Enemy");
 
         Rigidbody2D magicBulletRb = magicBullet.GetComponent<Rigidbody2D>();
 
-        //int direction = _sp.flipX ? -1 : 1;
-
-
-        //int direction = transform.rotation.y == -1 ? -1 : 1;
         magicBulletRb.velocity = shotDirection * bulletSpeed;
-        //StartCoroutine(IENewAttack());
     }
-
-    /*
-    private IEnumerator IENewAttack()
-    {
-        yield return new WaitForSeconds(coldownTime);
-        Attack();
-    }
-
-    private void OnDisable()
-    {
-        StopAllCoroutines();
-    } */
 }

@@ -38,7 +38,6 @@ public class EnemyState : MonoBehaviour
 
     public void EnemyIdle()
     {
-        //print("EnemyIdle");
         _enemyState = "Idle";
         _animator.SetBool("isIdle", true);
         _animator.SetBool("isWalking", false);
@@ -47,7 +46,6 @@ public class EnemyState : MonoBehaviour
 
     public void EnemyWalking()
     {
-        //print("EnemyWalking");
         _enemyState = "Running";
         _animator.SetBool("isIdle", false);
         _animator.SetBool("isWalking", true);
@@ -61,7 +59,6 @@ public class EnemyState : MonoBehaviour
 
     public void EnemyChasing()
     {
-       // print("EnemyChasing");
         _enemyState = "Chasing";
         _animator.SetBool("isIdle", false);
         _animator.SetBool("isWalking", true);
@@ -75,7 +72,6 @@ public class EnemyState : MonoBehaviour
 
     public void EnemyDeath(bool authoDestroy)
     {
-        print("DEATH DEATH DEATH DEATH");
         _enemyState = "Death";
         _animator.SetBool("isDeath", true);
         _animator.SetBool("isWalking", false);
@@ -100,11 +96,9 @@ public class EnemyState : MonoBehaviour
         _animator.SetTrigger("isFire");
         _enemyPatrol.enabled = false;
         _rb.velocity = Vector2.zero;
-        //_rb.isKinematic = true;
 
         if (_enemyDistantAttack)
             _enemyDistantAttack.enabled = true;
-        //_enemyNearChasing.enabled = true;
     }
 
 

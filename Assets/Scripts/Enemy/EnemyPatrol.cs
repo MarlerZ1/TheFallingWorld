@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(EnemyState))]
@@ -10,9 +7,6 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(BoxCollider2D))]
 public class EnemyPatrol : MonoBehaviour
 {
-    //public event Action<float> OnRotationChanged;
-
-
     [Header("RayCast settings")]
     [SerializeField] private float rayCastDistance;
     [SerializeField] private Transform groundRaycastPointFirst;
@@ -44,14 +38,12 @@ public class EnemyPatrol : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //print(_direction);
         Debug.DrawRay(groundRaycastPointFirst.position, Vector3.down * rayCastDistance, Color.yellow);
         Debug.DrawRay(groundRaycastPointSecond.position, Vector3.down * rayCastDistance, Color.red);
 
 
         _rb.velocity = new Vector2(_direction * speed, _rb.velocity.y);
-        //print(_rb.velocity + " col: " +!Physics2D.Raycast(groundRaycastPointFirst.position, Vector2.down, rayCastDistance, layerMask) + " " + !Physics2D.Raycast(groundRaycastPointSecond.position, Vector2.down, rayCastDistance, layerMask));
-    
+        
         if (_enemyState.GetEnemyState() != "Idle" && !Physics2D.Raycast(groundRaycastPointFirst.position, Vector2.down, rayCastDistance, layerMask) &&
             !Physics2D.Raycast(groundRaycastPointSecond.position, Vector2.down, rayCastDistance, layerMask))
         {
@@ -62,12 +54,10 @@ public class EnemyPatrol : MonoBehaviour
     public IEnumerator IEPlayIdleAnimation()
     {
         _enemyState.EnemyIdle();
-        //int currentDirection = _direction;
         _direction = 0;
 
         yield return new WaitForSeconds(timeToIdleState);
-        //_direction = currentDirection;
-        //print(_direction + "\t" + currentDirection);
+       
         _enemyState.EnemyWalking();
         ChangeDirection();
     }
@@ -85,11 +75,8 @@ public class EnemyPatrol : MonoBehaviour
     private void ChangeDirection()
     {
         _direction = transform.rotation.y == -1 ? 1 : -1; 
-        //print("Enemy rot1" + transform.rotation.y);
         bool rotationFlag = transform.rotation.y == -1;
         transform.rotation = Quaternion.Euler(0, rotationFlag ? 0 : 180, 0);
-       // OnRotationChanged?.Invoke(180);
-        //print("Enemy rot2" + transform.rotation.y);
     }
     private void OnEnable()
     {
@@ -105,7 +92,6 @@ public class EnemyPatrol : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
-        //_direction = transform.rotation.y == -1 ? -1 : 1;
     }
 
     private void OnDestroy()

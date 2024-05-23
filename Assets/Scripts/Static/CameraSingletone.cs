@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraSingletone : MonoBehaviour
@@ -14,6 +12,5 @@ public class CameraSingletone : MonoBehaviour
     public static Camera GetMainCamera()
     {
         return _cm;
-
     }
 };

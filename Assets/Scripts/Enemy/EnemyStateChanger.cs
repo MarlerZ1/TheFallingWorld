@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -31,7 +30,6 @@ public class EnemyStateChanger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        print("Enabled Con " + this.enabled);
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             if (enemyState.GetEnemyState() != "Death" && gameObject.activeInHierarchy)

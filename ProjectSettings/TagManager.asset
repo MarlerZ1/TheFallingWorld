@@ -55,6 +55,9 @@ TagManager:
   - name: InteractiveEnv
     uniqueID: 484462995
     locked: 0
+  - name: Enemy
+    uniqueID: 3818832249
+    locked: 0
   - name: Player
     uniqueID: 3277039129
     locked: 0

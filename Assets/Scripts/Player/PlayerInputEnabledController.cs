@@ -26,3 +26,4 @@ public class PlayerInputEnabledController : MonoBehaviour
         _playerAttack.enabled = true;
     }
 }
+ 

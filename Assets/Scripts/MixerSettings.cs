@@ -12,7 +12,8 @@ public class MixerSettings : MonoBehaviour
     [SerializeField] private AudioMixerGroup musicMixer;
     [SerializeField] private AudioMixerGroup soundMixer;
 
-
+    const float CORRECTING_VALUE = 0.8F;
+    const float DEFAULT_VALUE = 0.8F;
     private void Awake()
     {
         musicSlider.onValueChanged.AddListener(delegate { ChangeMusicValueFromSlider(); });
@@ -21,22 +22,22 @@ public class MixerSettings : MonoBehaviour
         if (PlayerPrefs.HasKey("MusicValue"))
             musicSlider.value = ConvertToSliderFormat(PlayerPrefs.GetFloat("MusicValue"));
         else
-            musicSlider.value = 0.8F;
+            musicSlider.value = DEFAULT_VALUE;
 
         if (PlayerPrefs.HasKey("SoundValue"))
             soundSlider.value = ConvertToSliderFormat(PlayerPrefs.GetFloat("SoundValue"));
         else
-            soundSlider.value = 0.8F;   
+            soundSlider.value = DEFAULT_VALUE;   
     }
 
     private float ConvertToSliderFormat(float val)
     {
-        return val / 100 + 0.8f;
+        return val / 100 + CORRECTING_VALUE;
     }
 
     private float ConvertToMixerFormat(float val)
     {
-        return (val - 0.8f) * 100;
+        return (val - CORRECTING_VALUE) * 100;
     }
 
     private void Start()

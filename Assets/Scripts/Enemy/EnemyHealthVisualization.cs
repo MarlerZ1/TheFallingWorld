@@ -1,6 +1,4 @@
 using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -16,26 +14,14 @@ public class EnemyHealthVisualization : MonoBehaviour
 
     private void OnEnable()
     {
-       //transform.localScale = new Vector2(100, 100);
-      //  enemyPatrol.OnRotationChanged += ChangeRotation;
-       // enemyChasing.OnRotationChanged += ChangeRotation;
         enemyHealth.OnHealthChanged += HPBarValueChanger;
     }
 
     private void OnDisable()
     {
-        //enemyPatrol.OnRotationChanged -= ChangeRotation;
-        //enemyChasing.OnRotationChanged -= ChangeRotation;
         enemyHealth.OnHealthChanged -= HPBarValueChanger;
     }
      
-    private void ChangeRotation(float rotation)
-    {
-        //transform.Rotate(new Vector3(0, rotation, 0), Space.World);
-        //transform.rotation = Quaternion.Euler(0, rotation * 2, 0);
-    }
-
-
     private void HPBarValueChanger(float damage, float maxHp, float currentHp)
     {
         
